@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="icon" href="assets/images/logo.ico" />
+    <!-- !======google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- !====== fontawesome-->
+    <link rel="stylesheet" href="assets/css/fontawesome/css/all.min.css" />
+    <!-- !====== css bootstrap stylesheet-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <!-- !====== css main stylesheet-->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="loading justify-content-center align-items-center">
+      <span class="loader"></span>
+    </div>
+
+    <div class="side-nav d-flex">
+      <div
+        class="side-nav-inner d-flex flex-column py-5 text-white ps-3 justify-content-between"
+      >
+        <div class="links d-flex flex-column gap-3">
+          <a class="search-button"><button>Search</button></a>
+          <a class="categories-button"><button>Categories</button></a>
+          <a class="area-button"><button>Area</button></a>
+          <a><button>Ingredients</button></a>
+          <a><button>Contact Us</button></a>
+        </div>
+        <div class="d-flex flex-column">
+          <div>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <div>
+            <p>Copyright Â© 2019 All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="side-nav-outer d-flex flex-column py-5 text-black justify-content-between align-items-center bg-white"
+      >
+        <img src="assets/images/logo.png" alt="" class="w-75 mx-auto" />
+        <i class="menu fa-solid fa-bars fa-2x"></i>
+        <i class="close fa-solid fa-xmark fa-2x"></i>
+        <div class="d-flex flex-column gap-2">
+          <i class="fa-solid fa-globe"></i>
+          <i class="fa-solid fa-share-nodes"></i>
+        </div>
+      </div>
+    </div>
+
+    <section class="w-85 mx-auto my-4" id="mylist">
+      <div class=" meals row row-cols-1 row-cols-md-2 g-4">
+      </div>
+    </section>
+
+    <section class="meals-details m-0">
+      <div class="row container mx-auto text-white pt-2 pb-5">
+        <div class="info col-lg-4">
+          <img src="" alt="" class="w-100 rounded" />
+          <span class="fs-2 fw-medium">Cobra</span>
+        </div>
+        <div class="col-lg-7">
+          <h2>Instructions</h2>
+          <p></p>
+          <h3 class="area-1">Area : <span></span></h3>
+          <h3 class="category">Category : <span></span></h3>
+          <div class="recipes">
+            <h3>Recipes :</h3>
+            <ul class="d-flex gap-2 p-0 flex-wrap text-black">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="tags d-flex flex-column gap-2">
+            <h3>Tags :</h3>
+            <span class="text-black w-fit"></span>
+          </div>
+          <div class="mt-4">
+            <a href="" class="source"><button class="btn btn-success">Source</button></a>
+            <a href="" class="youtube"><button class="btn btn-danger">Youtube</button></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="search justify-content-center gap-3 w-85 mx-auto my-3">
+      <input type="text" placeholder="Search By Name" class="search-name text-white bg-black ps-3 rounded w-50 py-2">
+      <input type="text" placeholder="Search By First Letter" class="search-letter text-white bg-black ps-3 rounded w-50 py-2">
+    </section>
+
+    <section class="search-result w-85 mx-auto my-4" id="mylist">
+      <div class="cartona row row-cols-1 row-cols-md-2 g-4">
+        
+      </div>
+    </section>
+
+    <section class="categories w-85 mx-auto py-5">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="img-1 card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded justify-content-center flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                Beef is the culinary name for meat from cattle, particularly
+                skeletal muscle. Humans have been eating beef since prehistoric
+                times.[1]
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                Chicken is a type of domesticated fowl, a subspecies of the red
+                junglefowl. It is one of the most common
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                Dessert is a course that concludes a meal. The course usually
+                consists of sweet foods, such as confections dishes or
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                Lamb, hogget, and mutton are the meat of domestic sheep (species
+                Ovis aries) at different ages. A sheep in its first
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                General foods that don't fit into another category
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                Pasta is a staple food of traditional Italian cuisine, with the
+                first reference dating to 1154 in Sicily. Also commonly used
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                Pork is the culinary name for meat from a domestic pig (Sus
+                scrofa domesticus). It is the most commonly consumed
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                Seafood is any form of sea life regarded as food by humans.
+                Seafood prominently includes fish and shellfish. Shellfish
+                include
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                A side dish, sometimes referred to as a side order, side item,
+                or simply a side, is a food item
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                An entrée in modern French table service and that of much of the
+                English-speaking world apart from the United States
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                Veganism is both the practice of abstaining from the use of
+                animal products, particularly in diet, and an associated
+                philosophy
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                Vegetarianism is the practice of abstaining from the consumption
+                of meat red meat, poultry, seafood, and the flesh of any
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                Breakfast is the first meal of a day. The word in English refers
+                to breaking the fasting period of the
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="meal-1 col-lg-3 position-relative">
+          <div class="position-relative">
+            <div class="card border-0">
+              <img src="" class="card-img-top w-100 rounded" alt="..." />
+            </div>
+            <div
+              class="layer position-absolute w-100 h-100 d-flex align-items-center rounded flex-column py-2"
+            >
+              <span class="fs-3 ps-3 fw-bold"></span>
+              <p class="text-center w-85">
+                The domestic goat or simply goat (Capra aegagrus hircus) is a
+                subspecies of C. aegagrus domesticated from the wild goat
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-85 mx-auto my-4" id="mylist">
+      <div class="categories-result row row-cols-1 row-cols-md-2 g-4">
+      </div>
+    </section>
+    <section class="w-85 mx-auto my-4" id="mylist">
+      <div class="ingrediants row row-cols-1 row-cols-md-2 g-4">
+      </div>
+    </section>
+
+    <section class="area row text-white w-85 justify-content-center mx-auto text-center g-4 py-5"
+    >
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+      <div class="area-index col-lg-3 d-flex flex-column gap-2">
+        <i class="fa-solid fa-house-laptop fa-4x"></i>
+        <span class="fs-3"></span>
+      </div>
+    </section>
+
+    <section class=" w-85 mx-auto my-4" id="mylist">
+      <div class="area-meals row row-cols-1 row-cols-md-2 g-4">
+        
+      </div>
+    </section>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
