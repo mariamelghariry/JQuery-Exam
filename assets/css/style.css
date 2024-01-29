@@ -102,13 +102,15 @@ body {
 .w-85{
     width: 85%;
 }
+.m-70{
+  margin-left: 70px;
+}
 .side-nav {
   position: fixed;
   top: 0;
   bottom: 0;
   width: 350px;
   z-index: 5;
-  height: 100vh;
   transition: 0.7s;
 }
 .side-nav-outer {
@@ -122,15 +124,12 @@ body {
   left: 100px;
 }
 
-button:hover {
-  color: #fdc813;
-  background-color: transparent;
-}
+
 .close {
   display: none;
 }
 .links {
-  /* display: none; */
+
   position: relative;
 }
 .meal{
@@ -181,10 +180,35 @@ input{
 .search{
   display: none;
 }
-/* .search-result{
-  display: none;
-} */
 
 .meal-1{
   overflow: hidden;
 }
+.ingredients{
+  display: none;
+}
+.ingredients:hover , .area:hover , .categories:hover ,.meals:hover ,.categories-result , .cartona:hover{
+  cursor: pointer;
+}
+.ingredients p{
+  height: 124px;
+  overflow: hidden;
+}
+.categories p{
+  height: 118px;
+  overflow: hidden;
+}
+
+.contact{
+  display: none;
+}
+.contact input{
+  padding: 5px 20px;
+  border-radius: 7px;
+}
+
+@media screen and (max-width: 340px) {
+  h4{
+    font-size: 19px;
+  }
+ }

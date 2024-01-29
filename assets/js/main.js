@@ -8,7 +8,7 @@ $(document).ready(function () {
 // ! ========> Side nav
 const width = $(".side-nav-inner").innerWidth();
 $(".side-nav").css("left", -width);
-
+console.log($(".side-nav-outer").innerWidth())
 // ! ========> async functions
 async function meals() {
   var response = await fetch(
@@ -38,12 +38,12 @@ async function meals() {
     $(".meals").html(cartona);
   }
 
-  async function mealsId(Id) {
+  async function mealsId(id) {
     var response = await fetch(
-      `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${Id}`
+      `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
     );
     var mealIdInfo = await response.json();
-    console.log(mealIdInfo);
+    // console.log(mealIdInfo);
     $(".meals-details img").attr("src", mealIdInfo.meals[0].strMealThumb);
     $(".info span").html(mealIdInfo.meals[0].strMeal);
     $(".meals-details p").html(mealIdInfo.meals[0].strInstructions);
@@ -120,19 +120,140 @@ async function categories() {
     `https://www.themealdb.com/api/json/v1/1/categories.php`
   );
   var mealsCategories = await response.json();
-  console.log(mealsCategories);
+  // console.log(mealsCategories);
   for (i = 0; i < mealsCategories.categories.length; i++) {
     $(".categories img")
       .eq(i)
       .attr("src", mealsCategories.categories[i].strCategoryThumb);
     $(".categories span").eq(i).html(mealsCategories.categories[i].strCategory);
+    $(".categories p")
+      .eq(i)
+      .html(mealsCategories.categories[i].strCategoryDescription);
   }
   $(".meal-1").click(function () {
-    console.log(mealsCategories.categories[$(this).index()].strCategory);
+    // console.log(mealsCategories.categories[$(this).index()].strCategory);
     mealscategory(mealsCategories.categories[$(this).index()].strCategory);
     $(".categories").css("display", "none");
+    $(".categories-result").css("display", "flex");
   });
 }
+
+async function mealscategory(e) {
+  var response = await fetch(
+    `https://www.themealdb.com/api/json/v1/1/filter.php?c=${e}`
+  );
+  var mealsCat = await response.json();
+  // console.log(mealsCat);
+
+  var cartona = "";
+  var list = [];
+  for (var i = 0; i < mealsCat.meals.length; i++) {
+    cartona += `<div class="meal col-lg-3 position-relative">
+    <div class="position-relative">
+      <div class="card border-0">
+        <img src="${mealsCat.meals[i].strMealThumb}" class="card-img-top w-100 rounded" alt="..." />
+      </div>
+      <div
+        class="layer position-absolute w-100 h-100 d-flex align-items-center rounded"
+      >
+        <span class="fs-3 ps-3 fw-bold">${mealsCat.meals[i].strMeal}</span>
+      </div>
+    </div>
+  </div>
+`;
+
+    list.push(mealsCat.meals[i].strMeal);
+  }
+
+  $(".categories-result").html(cartona);
+
+  $(".categories-result")
+    .children()
+    .click(function () {
+      checkDetails(list[$(this).index()]);
+      $(".categories-result").css("display", "none");
+      $(".meals-details").css("display", "flex");
+    });
+}
+
+async function checkDetails(y) {
+  var response = await fetch(
+    `https://www.themealdb.com/api/json/v1/1/search.php?s=${y}`
+  );
+  var check = await response.json();
+  // console.log(check);
+
+  sendId(check.meals[0].idMeal);
+}
+
+async function sendId(id) {
+  var response = await fetch(
+    `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+  );
+  var idInfo = await response.json();
+  $(".meals-details img").attr("src", idInfo.meals[0].strMealThumb);
+  $(".info span").html(idInfo.meals[0].strMeal);
+  $(".meals-details p").html(idInfo.meals[0].strInstructions);
+  $(".area-1 span").html(idInfo.meals[0].strArea);
+  $(".category span").html(idInfo.meals[0].strCategory);
+  $(".tags span").html(idInfo.meals[0].strTags);
+  $(".source").attr("href", idInfo.meals[0].strSource);
+  $(".youtube").attr("href", idInfo.meals[0].strYoutube);
+
+  var ingredients = [
+    idInfo.meals[0].strIngredient1,
+    idInfo.meals[0].strIngredient2,
+    idInfo.meals[0].strIngredient3,
+    idInfo.meals[0].strIngredient4,
+    idInfo.meals[0].strIngredient5,
+    idInfo.meals[0].strIngredient6,
+    idInfo.meals[0].strIngredient7,
+    idInfo.meals[0].strIngredient8,
+    idInfo.meals[0].strIngredient9,
+    idInfo.meals[0].strIngredient10,
+    idInfo.meals[0].strIngredient11,
+    idInfo.meals[0].strIngredient12,
+    idInfo.meals[0].strIngredient13,
+    idInfo.meals[0].strIngredient14,
+    idInfo.meals[0].strIngredient15,
+    idInfo.meals[0].strIngredient16,
+    idInfo.meals[0].strIngredient17,
+    idInfo.meals[0].strIngredient18,
+    idInfo.meals[0].strIngredient19,
+    idInfo.meals[0].strIngredient20,
+  ];
+  var measure = [
+    idInfo.meals[0].strMeasure1,
+    idInfo.meals[0].strMeasure2,
+    idInfo.meals[0].strMeasure3,
+    idInfo.meals[0].strMeasure4,
+    idInfo.meals[0].strMeasure5,
+    idInfo.meals[0].strMeasure6,
+    idInfo.meals[0].strMeasure7,
+    idInfo.meals[0].strMeasure8,
+    idInfo.meals[0].strMeasure9,
+    idInfo.meals[0].strMeasure10,
+    idInfo.meals[0].strMeasure11,
+    idInfo.meals[0].strMeasure12,
+    idInfo.meals[0].strMeasure13,
+    idInfo.meals[0].strMeasure14,
+    idInfo.meals[0].strMeasure15,
+    idInfo.meals[0].strMeasure16,
+    idInfo.meals[0].strMeasure17,
+    idInfo.meals[0].strMeasure18,
+    idInfo.meals[0].strMeasure19,
+    idInfo.meals[0].strMeasure20,
+  ];
+  for (i = 0; i < ingredients.length; i++) {
+    $(".recipes li ")
+      .eq(i)
+      .html(measure[i] + "" + ingredients[i]);
+    if (ingredients[i] === "") {
+      $(".recipes li ").eq(i).css("display", "none");
+    }
+  }
+}
+
 async function searchByName(input) {
   var response = await fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`
@@ -141,6 +262,7 @@ async function searchByName(input) {
   console.log(searchData);
 
   var cartona = "";
+  var list = [];
   for (var i = 0; i < searchData.meals.length; i++) {
     cartona += `<div class="meal col-lg-3 position-relative">
     <div class="position-relative">
@@ -155,9 +277,19 @@ async function searchByName(input) {
     </div>
   </div>
 `;
+    list.push(searchData.meals[i].strMeal);
   }
-  console.log(cartona);
+  // console.log(list);
   $(".cartona").html(cartona);
+  $(".cartona")
+    .children()
+    .click(function () {
+      checkDetails(list[$(this).index()]);
+      $(".search").css("display", "none");
+      $(".search-result").css("display", "none");
+      $(".meals-details").css("display", "flex");
+      list = [];
+    });
 }
 
 async function searchByLetter(input) {
@@ -168,7 +300,7 @@ async function searchByLetter(input) {
   console.log(searchData);
 
   var cartona = "";
-
+  var list = [];
   for (var i = 0; i < searchData.meals.length; i++) {
     cartona += `<div class="meal col-lg-3 position-relative">
       <div class="position-relative">
@@ -183,35 +315,19 @@ async function searchByLetter(input) {
       </div>
     </div>
 `;
+    list.push(searchData.meals[i].strMeal);
   }
 
   $(".cartona").html(cartona);
-}
-
-async function mealscategory(e) {
-  var response = await fetch(
-    `https://www.themealdb.com/api/json/v1/1/search.php?s=${e}`
-  );
-  var mealsData = await response.json();
-  console.log(mealsData);
-
-  var cartona = "";
-  for (var i = 0; i < mealsData.meals.length; i++) {
-    cartona += `<div class="meal col-lg-3 position-relative">
-    <div class="position-relative">
-      <div class="card border-0">
-        <img src="${mealsData.meals[i].strMealThumb}" class="card-img-top w-100 rounded" alt="..." />
-      </div>
-      <div
-        class="layer position-absolute w-100 h-100 d-flex align-items-center rounded"
-      >
-        <span class="fs-3 ps-3 fw-bold">${mealsData.meals[i].strMeal}</span>
-      </div>
-    </div>
-  </div>
-`;
-  }
-  $(".categories-result").html(cartona);
+  $(".cartona")
+    .children()
+    .click(function () {
+      checkDetails(list[$(this).index()]);
+      $(".search").css("display", "none");
+      $(".search-result").css("display", "none");
+      $(".meals-details").css("display", "flex");
+      list = [];
+    });
 }
 
 async function mealsArea() {
@@ -225,11 +341,9 @@ async function mealsArea() {
   }
   $(".area-index").click(function () {
     console.log(area.meals[$(this).index()].strArea);
-    mealsAreaResult(area.meals[$(this).index()].strArea)
+    mealsAreaResult(area.meals[$(this).index()].strArea);
     $(".area").css("display", "none");
     $(".area-meals").css("display", "flex");
-
-
   });
 }
 
@@ -241,6 +355,7 @@ async function mealsAreaResult(c) {
   console.log(areaData);
 
   var cartona = "";
+  var list = [];
   for (var i = 0; i < areaData.meals.length; i++) {
     cartona += `<div class="meal col-lg-3 position-relative">
     <div class="position-relative">
@@ -255,10 +370,70 @@ async function mealsAreaResult(c) {
     </div>
   </div>
 `;
+    list.push(areaData.meals[i].strMeal);
   }
   $(".area-meals").html(cartona);
+  $(".area-meals")
+    .children()
+    .click(function () {
+      checkDetails(list[$(this).index()]);
+      $(".area-meals").css("display", "none");
+      $(".meals-details").css("display", "flex");
+    });
 }
 
+async function mealsIngr() {
+  var response = await fetch(
+    `https://www.themealdb.com/api/json/v1/1/list.php?i=list`
+  );
+  var ingr = await response.json();
+
+  for (i = 0; i < ingr.meals.length; i++) {
+    $(".ingredients span").eq(i).html(ingr.meals[i].strIngredient);
+    $(".ingredients p").eq(i).html(ingr.meals[i].strDescription);
+  }
+  $(".ingredients-index").click(function () {
+    console.log(ingr.meals[$(this).index()].strIngredient);
+    mealsIngrResult(ingr.meals[$(this).index()].strIngredient);
+    $(".ingredients").css("display", "none");
+    $(".ingredients-result").css("display", "flex");
+  });
+}
+
+async function mealsIngrResult(i) {
+  var response = await fetch(
+    `https://www.themealdb.com/api/json/v1/1/filter.php?i=${i}`
+  );
+  var ingrData = await response.json();
+  console.log(ingrData);
+
+  var cartona = "";
+  var list = [];
+  for (var i = 0; i < ingrData.meals.length; i++) {
+    cartona += `<div class="meal col-lg-3 position-relative">
+    <div class="position-relative">
+      <div class="card border-0">
+        <img src="${ingrData.meals[i].strMealThumb}" class="card-img-top w-100 rounded" alt="..." />
+      </div>
+      <div
+        class="layer position-absolute w-100 h-100 d-flex align-items-center rounded"
+      >
+        <span class="fs-3 ps-3 fw-bold">${ingrData.meals[i].strMeal}</span>
+      </div>
+    </div>
+  </div>
+`;
+    list.push(ingrData.meals[i].strMeal);
+  }
+  $(".ingredients-result").html(cartona);
+  $(".ingredients-result")
+    .children()
+    .click(function () {
+      checkDetails(list[$(this).index()]);
+      $(".ingredients-result").css("display", "none");
+      $(".meals-details").css("display", "flex");
+    });
+}
 
 // ! ========> Events functions
 $(".categories-button").click(function () {
@@ -272,6 +447,10 @@ $(".categories-button").click(function () {
   $(".search-result").css("display", "none");
   $(".area-meals").css("display", "none");
   $(".area").css("display", "none");
+  $(".ingredients").css("display", "none");
+  $(".search-result").css("display", "none");
+  $(".categories-result").css("display", "none");
+  $(".contact").css("display", "none");
   $(".categories").css("display", "block");
 });
 
@@ -285,6 +464,9 @@ $(".search-button").click(function () {
   $(".categories-result").css("display", "none");
   $(".area").css("display", "none");
   $(".area-meals").css("display", "none");
+  $(".ingredients").css("display", "none");
+  $(".ingredients-result").css("display", "none");
+  $(".contact").css("display", "none");
   $(".search").css("display", "flex");
 });
 
@@ -322,6 +504,45 @@ $(".area-button").click(function () {
   $(".categories-result").css("display", "none");
   $(".search").css("display", "none");
   $(".area-meals").css("display", "none");
-  $('.area').css("display", "flex");
+  $(".search-result").css("display", "none");
+  $(".ingredients").css("display", "none");
+  $(".ingredients-result").css("display", "none");
+  $(".contact").css("display", "none");
+  $(".area").css("display", "flex");
   mealsArea();
+});
+
+$(".ingredients-button").click(function () {
+  $(".meals").css("display", "none");
+  $(".meals-details").css("display", "none");
+  $(".side-nav").css("left", -width);
+  $(".close").css("display", "none");
+  $(".menu").css("display", "block");
+  $(".categories").css("display", "none");
+  $(".categories-result").css("display", "none");
+  $(".search").css("display", "none");
+  $(".area-meals").css("display", "none");
+  $(".area").css("display", "none");
+  $(".search-result").css("display", "none");
+  $(".ingredients-result").css("display", "none");
+  $(".contact").css("display", "none");
+  $(".ingredients").css("display", "flex");
+  mealsIngr();
+});
+
+$(".contact-button").click(function () {
+  $(".meals").css("display", "none");
+  $(".meals-details").css("display", "none");
+  $(".side-nav").css("left", -width);
+  $(".close").css("display", "none");
+  $(".menu").css("display", "block");
+  $(".categories").css("display", "none");
+  $(".categories-result").css("display", "none");
+  $(".search").css("display", "none");
+  $(".area-meals").css("display", "none");
+  $(".area").css("display", "none");
+  $(".search-result").css("display", "none");
+  $(".ingredients-result").css("display", "none");
+  $(".ingredients").css("display", "none");
+  $(".contact").css("display", "flex");
 });
